@@ -30,6 +30,7 @@
     "url": "https://github.com/geek-zwb/libra-uikit/issues"
   },
   "dependencies": {
+    "@libra-world-uikit/uikit": "^1.0.0",
     "styled-components": "^4.3.2",
     "styled-system": "^5.1.2"
   }

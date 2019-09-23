@@ -10,8 +10,7 @@
     "build:cjs": "NODE_ENV=cjs lerna exec -- babel src --out-dir dist --root-mode upward",
     "build:esm": "NODE_ENV=esm lerna exec -- babel src -d es --root-mode upward",
     "bootstrap": "lerna bootstrap",
-    "publish": "lerna publish",
-    "precommit": "lint-staged"
+    "publish": "lerna publish"
   },
   "husky": {
     "hooks": {
