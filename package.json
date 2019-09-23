@@ -1,5 +1,4 @@
 {
-  "name": "libra-world-uikit",
   "private": true,
   "workspaces": [
     "packages/*"
