@@ -22,5 +22,9 @@
   "dependencies": {
     "styled-components": "^4.3.2",
     "styled-system": "^5.1.2"
-  }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "gitHead": "1bfb7d081bec708f7ed22ca4c254ac156e28579c"
 }
