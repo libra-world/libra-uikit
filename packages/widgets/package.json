@@ -1,6 +1,6 @@
 {
   "name": "@libra-world-uikit/widgets",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "widgets",
   "keywords": [
     "react",
@@ -30,7 +30,7 @@
     "url": "https://github.com/geek-zwb/libra-uikit/issues"
   },
   "dependencies": {
-    "@libra-world-uikit/uikit": "^1.0.1",
+    "@libra-world-uikit/uikit": "^1.1.0",
     "styled-components": "^4.3.2",
     "styled-system": "^5.1.2"
   }
