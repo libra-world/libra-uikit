@@ -1,0 +1,26 @@
+{
+  "name": "@libra-world-uikit/uikit",
+  "version": "1.0.0",
+  "description": "ui kit",
+  "main": "dist/index.js",
+  "module": "es/index.esm.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/libra-world/libra-uikit/tree/master"
+  },
+  "keywords": [
+    "libra-world",
+    "uikit",
+    "react"
+  ],
+  "author": "geekzwb@qq.com",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0"
+  },
+  "dependencies": {
+    "styled-components": "^4.3.2",
+    "styled-system": "^5.1.2"
+  }
+}
