@@ -1,6 +1,19 @@
 {
+  "version": "1.1.3",
+  "npmClient": "yarn",
+  "useWorkspaces": true,
+  "command": {
+    "publish": {
+      "ignoreChanges": [
+        "ignored-file",
+        "*.md"
+      ]
+    }
+  },
   "packages": [
     "packages/*"
   ],
-  "version": "0.0.0"
+  "create": {
+    "license": "MIT"
+  }
 }
