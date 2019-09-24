@@ -9,7 +9,8 @@
     "build:cjs": "NODE_ENV=cjs lerna exec -- babel src --out-dir dist --root-mode upward",
     "build:esm": "NODE_ENV=esm lerna exec -- babel src -d es --root-mode upward",
     "bootstrap": "lerna bootstrap",
-    "publish": "lerna publish"
+    "publish": "lerna publish",
+    "commitmsg": "commitlint -e $GIT_PARAMS"
   },
   "husky": {
     "hooks": {
@@ -22,12 +23,19 @@
       "git add"
     ]
   },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
   "devDependencies": {
     "@babel/cli": "^7.6.0",
     "@babel/core": "^7.6.0",
     "@babel/plugin-transform-runtime": "^7.6.0",
     "@babel/preset-env": "^7.6.0",
     "@babel/preset-react": "^7.0.0",
+    "@commitlint/cli": "^8.2.0",
+    "@commitlint/config-conventional": "^8.2.0",
     "babel-plugin-styled-components": "^1.10.6",
     "husky": "^3.0.5",
     "lerna": "^3.16.4",
