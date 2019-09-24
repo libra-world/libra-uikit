@@ -2,7 +2,10 @@ node_modules/
 lerna-debug.log
 npm-debug.log
 packages/*/lib
+<<<<<<< HEAD
 .docz
+=======
+>>>>>>> f91df7ae7043714aa6b51c899b864e5f01c6d068
 .idea
 .cache
 dist
