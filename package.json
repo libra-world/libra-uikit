@@ -9,13 +9,7 @@
     "build:cjs": "NODE_ENV=cjs lerna exec -- babel src --out-dir dist --root-mode upward",
     "build:esm": "NODE_ENV=esm lerna exec -- babel src -d es --root-mode upward",
     "bootstrap": "lerna bootstrap",
-    "publish": "lerna publish",
-    "commitmsg": "commitlint -e $GIT_PARAMS"
-  },
-  "husky": {
-    "hooks": {
-      "precommit": "lint-staged"
-    }
+    "publish": "lerna publish"
   },
   "lint-staged": {
     "*.{js,md}": [
@@ -42,5 +36,11 @@
     "lint-staged": "^9.2.5",
     "prettier": "^1.18.2"
   },
-  "name": "libra-world-uikit"
+  "name": "libra-world-uikit",
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -e $HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged"
+    }
+  }
 }
