@@ -1,0 +1,24 @@
+{
+  "extends": ["prettier", "react-app"],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["react", "jsx-a11y", "import", "@typescript-eslint", "react-hooks"],
+  "rules": {
+    "semi": 0,
+    "no-unused-vars": "off",
+    "react/jsx-filename-extension": [
+      "error",
+      {
+        "extensions": [".js", ".tsx", ".ts"]
+      }
+    ],
+    "import/no-unresolved": ["error", {"ignore": ["^react$", "csstype"]}],
+    "@typescript-eslint/no-angle-bracket-type-assertion": 0
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
+  }
+}

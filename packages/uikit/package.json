@@ -1,0 +1,54 @@
+{
+  "name": "@libra-world-uikit/uikit",
+  "version": "1.1.4",
+  "description": "Libra world uikit.",
+  "keywords": [
+    "uikit",
+    "react",
+    "styled-components"
+  ],
+  "author": "geekzwb <geekzwb@qq.com>",
+  "homepage": "https://github.com/libra-world/libra-world-uikit.git#readme",
+  "license": "MIT",
+  "main": "lib/index.cjs.js",
+  "module": "lib/index.esm.js",
+  "typings": "lib/index.d.ts",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/libra-world/libra-world-uikit.git"
+  },
+  "scripts": {
+    "build": "../../node_modules/.bin/rollup -c rollup.config.js",
+    "build:watch": "yarn build -w",
+    "format": "../../node_modules/.bin/prettier --write \"src/**/*.+(ts|tsx)\"",
+    "tsc": "../../node_modules/.bin/tsc --noEmit",
+    "prebuild": "../../node_modules/.bin/rimraf lib"
+  },
+  "bugs": {
+    "url": "https://github.com/libra-world/libra-world-uikit/issues"
+  },
+  "peerDependencies": {
+    "react": "^16.8.5",
+    "styled-components": ">= 4.0.0"
+  },
+  "devDependencies": {
+    "@types/styled-components": "^4.1.18",
+    "@types/styled-system": "^5.1.0",
+    "csstype": "^2.6.6",
+    "date-fns": "^2.0.0",
+    "styled-components": "^4.3.2"
+  },
+  "dependencies": {
+    "styled-system": "^5.1.1"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
