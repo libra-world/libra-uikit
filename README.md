@@ -34,16 +34,6 @@ And we provide a default theme for you, you can combine with your own theme.
 <ThemeProvider
   theme={{
     breakpoints: ['32em', '48em', '64em'],
-    reactDatepicker: {
-      daySize: [36, 40],
-      fontFamily: 'system-ui, -apple-system',
-      colors: {
-        accessibility: '#D80249',
-        selectedDay: '#f7518b',
-        selectedDayHover: '#F75D95',
-        primaryColor: '#d8366f',
-      },
-    },
   }}
 >
   ...
