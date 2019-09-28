@@ -1,5 +1,5 @@
-import React, { useContext, useState, useEffect, useRef } from 'react';
-import styled, { ThemeContext } from 'styled-components';
+import React, {useContext, useState, useEffect} from 'react'
+import styled, {ThemeContext} from 'styled-components'
 import {
   background,
   BackgroundProps,
@@ -19,44 +19,37 @@ import {
   FontWeightProps,
   position,
   PositionProps,
-  top,
-  TopProps,
-  left,
-  LeftProps,
   width,
   WidthProps,
-  height,
-  HeightProps,
   display,
   DisplayProps,
   minHeight,
   MinHeightProps,
   boxShadow,
   BoxShadowProps,
-  right,
-  RightProps,
   style,
   ResponsiveValue,
   TLengthStyledSystem,
-  compose
-} from 'styled-system';
-import CalendarIcon from '../../icons/CalendarIcon';
+  compose,
+} from 'styled-system'
 // eslint-disable-next-line import/no-unresolved
-import { InputTheme } from '../../@types/theme';
-import useThemeProps from '../../hooks/useThemeProps';
-import globalStyles from '../../globalStyles';
-import { PaddingProperty } from 'csstype';
-import getThemeProp from '../../utils/getThemeProp';
+import {InputTheme} from '../../@types/theme'
+import useThemeProps from '../../hooks/useThemeProps'
+import globalStyles from '../../globalStyles'
+import {PaddingProperty} from 'csstype'
+import getThemeProp from '../../utils/getThemeProp'
+import Flex from '../Flex'
+import {FlexComponentProps} from '../Flex/Flex'
 
 const placeholderColor = style({
   prop: 'placeholderColor',
-  cssProperty: 'color'
-});
+  cssProperty: 'color',
+})
 
 const placeholderFontWeight = style({
   prop: 'placeholderFontWeight',
-  cssProperty: 'fontWeight'
-});
+  cssProperty: 'fontWeight',
+})
 
 interface InputLabelProps
   extends PositionProps,
@@ -64,8 +57,8 @@ interface InputLabelProps
     BackgroundProps,
     DisplayProps,
     SpaceProps,
-    BorderRadiusProps {
-}
+    BorderRadiusProps,
+    FlexComponentProps {}
 
 const composeInputLabelStyles = compose(
   position,
@@ -73,38 +66,11 @@ const composeInputLabelStyles = compose(
   background,
   display,
   borderRadius,
-  space
-);
-const InputLabel = styled('label')<InputLabelProps>`
+  space,
+)
+const InputLabel = styled(Flex)<InputLabelProps>`
   ${composeInputLabelStyles}
-`;
-
-interface CalendarWrapperProps
-  extends PositionProps,
-    LeftProps,
-    RightProps,
-    TopProps,
-    HeightProps,
-    WidthProps {
-}
-
-const composeCalendarWrapperStyles = compose(
-  position,
-  left,
-  right,
-  top,
-  height,
-  width
-);
-
-const CalendarWrapper = styled('div')<CalendarWrapperProps>`
-  ${composeCalendarWrapperStyles};
-  cursor: pointer;
-
-  svg {
-    display: block;
-  }
-`;
+`
 
 interface StyledInputProps
   extends BackgroundProps,
@@ -116,8 +82,7 @@ interface StyledInputProps
     WidthProps,
     MinHeightProps,
     BoxShadowProps,
-    FontSizeProps {
-}
+    FontSizeProps {}
 
 const composeStyledInputStyle = compose(
   background,
@@ -130,8 +95,8 @@ const composeStyledInputStyle = compose(
   border,
   width,
   minHeight,
-  boxShadow
-);
+  boxShadow,
+)
 
 const StyledInput = styled('input')<StyledInputProps>`
   ${composeStyledInputStyle};
@@ -154,44 +119,46 @@ const StyledInput = styled('input')<StyledInputProps>`
     ${placeholderFontWeight};
     ${placeholderColor};
   }
-`;
+`
 
 interface InputProps {
   placeholder?: string
   value?: string
   id?: string
   ariaLabel?: string
-  onClick?(): void
-  showCalendarIcon?: boolean
+  onClick?(e: React.ChangeEvent<HTMLInputElement>): void
+  prefixAddon?: JSX.Element | string
+  suffixAddon?: JSX.Element | string
   vertical?: boolean
   isActive?: boolean
   rtl?: boolean
   disableAccessibility?: boolean
   padding?: ResponsiveValue<PaddingProperty<TLengthStyledSystem>>
-  onChange?(val: any): void
+  onChange?(e: React.ChangeEvent<HTMLInputElement>): void
   dateFormat?: string
+  theme?: InputTheme
 }
 
 function Input({
-                 placeholder,
-                 id,
-                 vertical,
-                 isActive,
-                 ariaLabel,
-                 onClick,
-                 value,
-                 showCalendarIcon,
-                 padding,
-                 rtl,
-                 disableAccessibility,
-                 onChange = f => f,
-               }: InputProps) {
-  const [searchString, setSearchString] = useState(value);
-  const ref = useRef(null);
+  placeholder,
+  id,
+  isActive,
+  ariaLabel,
+  onClick,
+  value,
+  prefixAddon,
+  suffixAddon,
+  padding,
+  disableAccessibility,
+  onChange = f => f,
+  theme: inputTheme,
+}: InputProps) {
+  const [searchString, setSearchString] = useState(value)
+  // const ref = useRef(null);
   useEffect(() => {
-    setSearchString(value);
-  }, [value]);
-  const themeContext = useContext(ThemeContext);
+    setSearchString(value)
+  }, [value])
+  const themeContext = useContext(ThemeContext)
   const theme: InputTheme = useThemeProps({
     fontFamily: globalStyles.fontFamily,
     inputFontWeight: 600,
@@ -200,40 +167,35 @@ function Input({
     inputBackground: getThemeProp('white', globalStyles.colors.white, themeContext),
     inputMinHeight: '46px',
     inputWidth: '100%',
+    inputFlex: '1',
     inputPadding: padding,
     inputBorder: '0',
     inputPlaceholderFontWeight: 500,
     inputPlaceholderColor: getThemeProp(
       'silverCloud',
       globalStyles.colors.silverCloud,
-      themeContext
+      themeContext,
     ),
-    inputCalendarWrapperPosition: 'absolute',
-    inputCalendarWrapperHeight: '12px',
-    inputCalendarWrapperWidth: '12px',
-    inputCalendarWrapperTop: '16px',
-    inputCalendarWrapperLeft: rtl ? 'unset' : vertical ? '8px' : '16px',
-    inputCalendarWrapperRight: rtl ? (vertical ? '8px' : '16px') : 'unset',
-    inputCalendarIconWidth: '12px',
-    inputCalendarIconHeight: '12px',
-    inputCalendarIconColor: getThemeProp('graci', globalStyles.colors.graci, themeContext),
-    inputLabelDisplay: 'block',
+    inputLabelDisplay: 'flex',
     inputLabelPosition: 'relative',
     inputLabelBorder: `1px solid ${getThemeProp('graci', globalStyles.colors.graci, themeContext)}`,
     inputLabelBorderRadius: '2px',
     inputLabelBackground: getThemeProp('white', globalStyles.colors.white, themeContext),
     inputLabelMargin: '0',
-    inputActiveBoxShadow: `inset 0px -3px 0 ${getThemeProp(
+    inputLabelActiveBoxShadow: `inset 0px -3px 0 ${getThemeProp(
       'primaryColor',
       globalStyles.colors.primaryColor,
-      themeContext
-    )}`
-  });
+      themeContext,
+    )}`,
+    ...inputTheme,
+  })
 
   function handleOnChange(e: React.ChangeEvent<HTMLInputElement>) {
-    const dateValue = e.target.value;
-    setSearchString(dateValue);
-
+    const val = e.target.value
+    setSearchString(val)
+    onClick && onClick(e)
+    onChange(e)
+    /*
     if (typeof ref.current === 'number') {
       // @ts-ignore
       clearTimeout(ref.current);
@@ -242,46 +204,27 @@ function Input({
     // @ts-ignore
     ref.current = setTimeout(() => {
       onClick && onClick();
-      // @ts-ignore
-      const parsedDate = '1992-12-3 11:22:32';
-
-      // @ts-ignore
-      if (!isNaN(parsedDate)) {
-        onChange('');
-      }
-    }, 1000);
+      onChange(e);
+    }, 300);*/
   }
 
   return (
+    // @ts-ignore
     <InputLabel
       htmlFor={id}
+      as="label"
       display={theme.inputLabelDisplay}
       position={theme.inputLabelPosition}
       border={theme.inputLabelBorder}
       background={theme.inputLabelBackground}
       borderRadius={theme.inputLabelBorderRadius}
       m={theme.inputLabelMargin}
+      boxShadow={isActive ? theme.inputLabelActiveBoxShadow : 'none'}
+      {...theme.inputLabelTheme}
     >
-      {showCalendarIcon && (
-        <CalendarWrapper
-          position={theme.inputCalendarWrapperPosition}
-          height={theme.inputCalendarWrapperHeight}
-          width={theme.inputCalendarWrapperWidth}
-          top={theme.inputCalendarWrapperTop}
-          left={theme.inputCalendarWrapperLeft}
-          right={theme.inputCalendarWrapperRight}
-        >
-          <CalendarIcon
-            // @ts-ignore
-            width={theme.inputCalendarIconWidth}
-            // @ts-ignore
-            height={theme.inputCalendarIconHeight}
-            // @ts-ignore
-            color={theme.inputCalendarIconColor}
-          />
-        </CalendarWrapper>
-      )}
+      {prefixAddon}
       <StyledInput
+        flex={theme.inputFlex}
         tabIndex={disableAccessibility ? -1 : 0}
         border={theme.inputBorder}
         p={theme.inputPadding}
@@ -296,7 +239,6 @@ function Input({
         fontWeight={theme.inputFontWeight}
         placeholderColor={theme.inputPlaceholderColor}
         placeholderFontWeight={theme.inputPlaceholderFontWeight}
-        boxShadow={isActive ? theme.inputActiveBoxShadow : 'none'}
         id={id}
         placeholder={placeholder}
         aria-label={ariaLabel}
@@ -304,10 +246,12 @@ function Input({
         autoComplete="off"
         onChange={handleOnChange}
         onFocus={onClick}
-        data-testid="DatepickerInput"
+        data-testid="CommonInput"
+        {...theme.inputTheme}
       />
+      {suffixAddon}
     </InputLabel>
-  );
+  )
 }
 
-export default Input;
+export default Input

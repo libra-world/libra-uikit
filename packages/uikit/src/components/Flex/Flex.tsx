@@ -21,7 +21,7 @@ import {
 } from 'styled-system'
 import styled from 'styled-components'
 
-interface FlexComponentProps
+export interface FlexComponentProps
   extends SpaceProps,
     FlexWrapProps,
     FlexDirectionProps,
@@ -48,5 +48,9 @@ const Flex = styled('div')<FlexComponentProps>`
   display: flex;
   ${composeFlexStyles}
 `
+
+Flex.defaultProps = {
+  alignItems: 'center',
+}
 
 export default Flex

@@ -9,7 +9,6 @@ test('should render with icon', () => {
       rtl={false}
       vertical={false}
       isActive={false}
-      showCalendarIcon
       ariaLabel="startDate"
       id="startDate"
       placeholder="Placeholder"
@@ -33,7 +32,6 @@ test('should render rtl variant', () => {
       rtl
       vertical={false}
       isActive={false}
-      showCalendarIcon
       ariaLabel="startDate"
       id="startDate"
       placeholder="Placeholder"
@@ -56,7 +54,6 @@ test('should render without icon', () => {
     <Input
       rtl={false}
       vertical={false}
-      showCalendarIcon={false}
       isActive={false}
       ariaLabel="startDate"
       id="startDate"
@@ -76,7 +73,6 @@ test('should render with value', () => {
     <Input
       rtl={false}
       vertical={false}
-      showCalendarIcon={false}
       isActive={false}
       ariaLabel="startDate"
       id="startDate"
@@ -98,7 +94,6 @@ test('should render vertical variant', () => {
       vertical
       isActive
       rtl={false}
-      showCalendarIcon={false}
       ariaLabel="startDate"
       id="startDate"
       placeholder="Placeholder"

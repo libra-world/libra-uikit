@@ -61,20 +61,17 @@ export interface InputTheme extends CommonTheme {
   inputPlaceholderFontWeight?: ResponsiveValue<FontWeightProperty>
   inputFontSize?: ResponsiveValue<FontSizeProperty<TLengthStyledSystem>>
   inputColor?: ResponsiveValue<ColorProperty>
+  inputFlex?: string
   inputPlaceholderColor?: ResponsiveValue<ColorProperty>
   inputBackground?: ResponsiveValue<BackgroundProperty<TLengthStyledSystem>>
   inputMinHeight?: ResponsiveValue<MinHeightProperty<TLengthStyledSystem>>
   inputWidth?: ResponsiveValue<WidthProperty<TLengthStyledSystem>>
   inputPadding?: ResponsiveValue<PaddingProperty<TLengthStyledSystem>>
   inputBorder?: ResponsiveValue<BorderProperty<TLengthStyledSystem>>
-  inputActiveBoxShadow?: ResponsiveValue<BoxShadowProperty>
-  inputCalendarWrapperPosition?: ResponsiveValue<PositionProperty>
-  inputCalendarWrapperHeight?: ResponsiveValue<HeightProperty<TLengthStyledSystem>>
-  inputCalendarWrapperWidth?: ResponsiveValue<WidthProperty<TLengthStyledSystem>>
-  inputCalendarWrapperTop?: ResponsiveValue<TopProperty<TLengthStyledSystem>>
-  inputCalendarWrapperLeft?: ResponsiveValue<LeftProperty<TLengthStyledSystem>>
-  inputCalendarWrapperRight?: ResponsiveValue<RightProperty<TLengthStyledSystem>>
-  inputCalendarIconWidth?: string
-  inputCalendarIconHeight?: string
-  inputCalendarIconColor?: string
+  inputLabelActiveBoxShadow?: ResponsiveValue<BoxShadowProperty>
+  inputIconIconWidth?: string
+  inputIconIconHeight?: string
+  inputIconIconColor?: string
+  inputLabelTheme?: object
+  inputTheme?: object
 }
