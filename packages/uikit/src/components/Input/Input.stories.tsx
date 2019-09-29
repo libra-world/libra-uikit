@@ -35,3 +35,18 @@ storiesOf('Input', module)
       }}
     />
   ))
+  .add('suffix addon', () => (
+    <Input
+      placeholder="test"
+      value="test"
+      id="test"
+      ariaLabel="string"
+      vertical={false}
+      isActive={true}
+      rtl={false}
+      suffixAddon={<Box mx="8px">.com</Box>}
+      onChange={(val: any) => {
+        console.log(val)
+      }}
+    />
+  ))
