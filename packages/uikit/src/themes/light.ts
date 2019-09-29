@@ -14,7 +14,7 @@ const colors = {
   background: palette.white,
   foreground: palette.white,
   button: '#2a2f37',
-  primary: palette.yellow,
+  primary: palette.white,
   error: palette.red,
   cardBg: palette.darkGray,
   caption: palette.gray,
@@ -25,14 +25,31 @@ const colors = {
 }
 
 const buttons = {
-  default: {
-    fontWeight: 500,
-    fontSize: fontSizes[2],
+  primary: {
+    color: 'white',
+    background: colors.black,
+    border: `1px solid ${colors.black}`,
   },
-  small: {
-    padding: '3px 6px',
-    fontWeight: 400,
-    fontSize: fontSizes[0],
+  secondary: {
+    color: colors.black,
+    background: colors.primary,
+    border: `1px solid ${colors.primary}`,
+  },
+  danger: {
+    color: 'white',
+    background: colors.red,
+  },
+}
+const buttonSizes = {
+  medium: {
+    fontSize: fontSizes.md,
+    padding: `8px 16px`,
+    borderRadius: baseTheme.radii[1],
+  },
+  large: {
+    fontSize: fontSizes.xl,
+    padding: `12px 24px`,
+    borderRadius: baseTheme.radii[2],
   },
 }
 
@@ -41,6 +58,7 @@ const theme: DefaultTheme = {
   name: 'lightTheme',
   colors,
   buttons,
+  buttonSizes,
 }
 
 export default theme

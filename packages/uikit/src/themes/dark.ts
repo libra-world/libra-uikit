@@ -13,7 +13,7 @@ const colors = {
   foreground: palette.white,
   background: palette.black,
   button: '#2a2f37',
-  primary: palette.yellow,
+  primary: palette.black,
   error: palette.red,
   cardBg: palette.darkGray,
   caption: palette.gray,
@@ -24,14 +24,25 @@ const colors = {
 }
 
 const buttons = {
-  default: {
-    fontWeight: 500,
-    fontSize: fontSizes[2],
+  primary: {
+    color: 'white',
+    background: colors.primary,
   },
-  small: {
-    padding: '3px 6px',
-    fontWeight: 400,
-    fontSize: fontSizes[0],
+  danger: {
+    color: 'white',
+    background: colors.red,
+  },
+}
+const buttonSizes = {
+  medium: {
+    fontSize: fontSizes[2],
+    padding: `8px 16px`,
+    borderRadius: baseTheme.radii[1],
+  },
+  large: {
+    fontSize: fontSizes[3],
+    padding: `12px 24px`,
+    borderRadius: baseTheme.radii[2],
   },
 }
 
@@ -40,6 +51,7 @@ const theme: DefaultTheme = {
   ...baseTheme,
   colors,
   buttons,
+  buttonSizes,
 }
 
 export default theme

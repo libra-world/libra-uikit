@@ -1,7 +1,7 @@
 const colors = {
   white: '#fff',
+  black: '#000',
   grays: ['#848E9C', '#2a2f37', '#12161C', '#1b2027'],
-  black: '#0B0E11',
   darkGray: '#12161C',
   gray: '#848E9C',
   lightGray: '#EAECEF',
@@ -47,10 +47,7 @@ const zIndices = {
   xxl: 10001,
 }
 
-const radii = {
-  default: '3px',
-  circle: '50%',
-}
+const radii = [0, 3, 5, '50%']
 
 export default {
   colors,
