@@ -22,9 +22,10 @@ import {
   ZIndexProps,
 } from 'styled-system'
 import styled from 'styled-components'
+import {PropsWithChildren} from 'react'
 
-interface BoxProps
-  extends GridAreaProps,
+export interface BoxProps
+  extends PropsWithChildren<GridAreaProps>,
     HeightProps,
     SpaceProps,
     PositionProps,
