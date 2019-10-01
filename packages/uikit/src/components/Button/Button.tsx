@@ -34,7 +34,6 @@ const Button = styled('button')<IButtonProps>`
    return props.bg
  }};
   ${({disabled}) => (disabled ? 'cursor: not-allowed;' : 'cursor: pointer;')}
-  // @ts-ignore
   ${({outline}) => (outline ? 'background: none' : '')};
   &:hover {
     ${({glossy, disabled}) => (glossy && !disabled ? `opacity:0.5;` : '')}
